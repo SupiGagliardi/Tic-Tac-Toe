@@ -255,9 +255,7 @@ const game = (function () {
         renderArray();
     }
 
-    return {
-        gameBoard
-    };
+    return {};
 })();
 
 
