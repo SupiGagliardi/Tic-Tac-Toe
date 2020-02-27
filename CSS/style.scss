@@ -13,7 +13,7 @@
 }
 
 @mixin largetablet {
-    @media (min-width: 1024px) and (min-height: 1366px) {
+    @media (min-width: 1024px) and (min-height: 1366px) and (max-height: 1366px){
         @content
     };
 };
@@ -172,6 +172,7 @@ body {
           align-items: center;
           font-size: 4.5em;
           font-weight: 300;
+          cursor: pointer;
         }
 
         .pos-1 {
@@ -207,6 +208,11 @@ body {
         .pos-8 {
           border-right: $border-right;
         }
+
+        .winner {
+            font-weight: 400;
+        }
+        
       }
     }
 
@@ -219,6 +225,7 @@ body {
 
       p {
         font-size: 1.875em;
+        cursor: pointer;
       }
     };
   };

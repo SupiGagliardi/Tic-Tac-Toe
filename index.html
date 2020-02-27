@@ -18,30 +18,30 @@
         </nav>
         <section class="game">
             <div class="result-display">
-                <p>X turn</p>
+                <p id="turn">X turn</p>
             </div>
             <div class="gameboard">
                 <div class="gameboard-grid">
-                    <div class="position pos-1" id="position"></div>
-                    <div class="position pos-2" id="position">O</div>
-                    <div class="position pos-3" id="position">X</div>
-                    <div class="position pos-4" id="position">X</div>
-                    <div class="position pos-5" id="position"></div>
-                    <div class="position pos-6" id="position">O</div>
-                    <div class="position pos-7" id="position">X</div>
-                    <div class="position pos-8" id="position"></div>
-                    <div class="position pos-9" id="position">O</div>
+                    <div class="position pos-1" id="position" data-index="0"></div>
+                    <div class="position pos-2" id="position" data-index="1"></div>
+                    <div class="position pos-3" id="position" data-index="2"></div>
+                    <div class="position pos-4" id="position" data-index="3"></div>
+                    <div class="position pos-5" id="position" data-index="4"></div>
+                    <div class="position pos-6" id="position" data-index="5"></div>
+                    <div class="position pos-7" id="position" data-index="6"></div>
+                    <div class="position pos-8" id="position" data-index="7"></div>
+                    <div class="position pos-9" id="position" data-index="8"></div>
                 </div>
             </div>
             <div class="restart-game">
-                <p>Restart Game</p>
+                <p id="restart">Restart Game</p>
             </div>
         </section>
         <div class="score">
             <h2>Score</h2>
             <div>
-                <p>X: 0</p>
-                <p>O: 0</p>
+                <p id="x-global-score">X:0</p>
+                <p id="o-global-score">O:0</p>
             </div>
         </div>
     </div>
