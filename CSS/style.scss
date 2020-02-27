@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css?family=Flamenco:300,400&display=swap");
+
+@mixin phone {
+  @media (min-height: 670px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (min-height: 1000px) and (max-height: 1366px){
+    @content;
+  }
+}
+
+@mixin largetablet {
+    @media (min-width: 1024px) and (min-height: 1366px) {
+        @content
+    };
+};
+
+@mixin smalldesktop {
+  @media (min-width: 1024px) and (min-height: 720px) and (max-height: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+
+$colors: (
+  primary: #707070,
+  secondary: #6b6b6b
+);
+
+$border-right: 2px solid #6b6b6b;
+$border-bottom: 2px solid #6b6b6b;
+
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Flamenco", "Montserrat", sans-serif;
+}
+
+html {
+  font-size: 16px;
+
+  @include phone {
+    font-size: 20px;
+  }
+
+  @include tablet {
+    font-size: 28px;
+  }
+
+  @include smalldesktop {
+    font-size: 25px;
+  }
+
+  @include desktop {
+      font-size: 35px;
+  }
+
+  @include largetablet {
+      font-size: 36px;
+  }
+};
+
+
+html,
+body {
+  height: 100%;
+  color: color(primary);
+
+  @include smalldesktop {
+    overflow: hidden;
+  }
+}
+
+.container {
+  min-height: 100%;
+  background-color: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include smalldesktop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 3.4em 1fr;
+    grid-template-areas:
+      "nav nav nav"
+      "score game .";
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.4em;
+
+    @include smalldesktop {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      padding: 0.6em 1.5em;
+      grid-area: nav;
+      height: fit-content;
+    }
+
+    img {
+      height: 1.35em;
+      width: auto;
+
+      @include smalldesktop {
+        height: 1.85em;
+      }
+    }
+
+    h1 {
+      font-weight: 400;
+      font-size: 2.1875em;
+    }
+  }
+
+  .game {
+    margin-top: 1.5em;
+
+    @include smalldesktop {
+      grid-area: game;
+      margin: 0 0 6em 0;
+
+      align-self: center;
+    }
+
+    @include desktop {
+        font-size: 40px;
+    }
+
+
+    .result-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2em;
+
+      p {
+        font-size: 2em;
+        font-weight: 300;
+      }
+    }
+
+    .gameboard {
+      width: fit-content;
+      margin: 0 auto;
+      .gameboard-grid {
+        display: grid;
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 5.3125em);
+        grid-template-rows: repeat(3, 5.3125em);
+
+        .position {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 4.5em;
+          font-weight: 300;
+        }
+
+        .pos-1 {
+          border-right: $border-right;
+          border-bottom: $border-bottom;
+        }
+        .pos-2 {
+          border-right: $border-right;
+          border-bottom: $border-bottom;
+        }
+        .pos-3 {
+          border-bottom: $border-bottom;
+        }
+
+        .pos-4 {
+          border-right: $border-right;
+          border-bottom: $border-bottom;
+        }
+
+        .pos-5 {
+          border-right: $border-right;
+          border-bottom: $border-bottom;
+        }
+
+        .pos-6 {
+          border-bottom: $border-bottom;
+        }
+
+        .pos-7 {
+          border-right: $border-right;
+        }
+
+        .pos-8 {
+          border-right: $border-right;
+        }
+      }
+    }
+
+    .restart-game {
+      display: flex;
+      visibility: hidden;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1em;
+
+      p {
+        font-size: 1.875em;
+      }
+    };
+  };
+
+  .score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 1.7em 0 1.5em 0;
+    height: fit-content;
+
+    @include smalldesktop {
+      justify-content: start;
+      align-items: flex-start;
+      padding-left: 1.5em;
+    }
+
+    @include smalldesktop {
+      grid-area: score;
+    }
+    h2 {
+      font-family: "Roboto", sans-serif;
+      font-size: 1.625em;
+      font-weight: 100;
+
+      @include smalldesktop {
+        font-size: 1.425em;
+      }
+    }
+
+    div {
+      display: flex;
+
+      @include smalldesktop {
+        flex-direction: column;
+      }
+
+      p {
+        margin-top: 0.7em;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.4375em;
+        margin: 0.5em 0.8em;
+
+        @include smalldesktop {
+          margin: 0.3em 0;
+          font-size: 1.2375em;
+        }
+      }
+    }
+  }
+}
